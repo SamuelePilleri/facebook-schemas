@@ -19,11 +19,22 @@
 								"external_context": {
 									"type": "object",
 
-									"properties": {
-										"url": { "type": "string" }
-									},
-									"required": [ "url" ],
-									"additionalProperties": false
+									"oneOf": [
+										{
+											"properties": {
+												"url": { "type": "string" }
+											},
+											"required": [ "url" ],
+											"additionalProperties": false
+										},
+										{
+											"properties": {
+												"name": { "type": "string" }
+											},
+											"required": [ "name" ],
+											"additionalProperties": false
+										}
+									]
 								}
 							},
 							"required": [ "external_context" ],

@@ -13,7 +13,7 @@
 				"title": { "type": "string" },
 				"timestamp": { "type": "integer" }
 			},
-			"required": [ "action", "title", "timestamp" ],
+			"required": [ "action", "timestamp" ],
 			"additionalProperties": false
 		}
 	},

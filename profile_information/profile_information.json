@@ -33,7 +33,7 @@
 							"items": { "type": "string" }
 						}
 					},
-					"required": [ "emails", "previous_emails" ],
+					"required": [ "emails" ],
 					"additionalProperties": true
 				},
 				"registration_timestamp": { "type": "integer" },

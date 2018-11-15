@@ -34,6 +34,9 @@
 					},
 					"minItems": 1,
 					"maxItems": 1
+				},
+				"attachments": {
+						"$ref": "http://localhost:8080/_partials/attachments.json"
 				}
 			},
 			"required": [ "title", "timestamp", "data" ],

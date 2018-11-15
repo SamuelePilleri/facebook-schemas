@@ -100,7 +100,7 @@
 						}
 					}
 				},
-				"required": [ "sender_name", "timestamp_ms", "type" ],
+				"required": [ "timestamp_ms", "type" ],
 				"additionalProperties": false
 			}
 		},
@@ -109,6 +109,6 @@
 		"thread_type": { "type": "string" },
 		"thread_path": { "type": "string" }
 	},
-	"required": [ "participants", "messages", "title", "is_still_participant", "thread_type", "thread_path" ],
+	"required": [ "participants", "messages", "is_still_participant", "thread_type", "thread_path" ],
 	"additionalProperties": false
 }
