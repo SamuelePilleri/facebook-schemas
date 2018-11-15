@@ -1,0 +1,39 @@
+{
+	"$schema": "http://localhost:8080/draft-04-enhanced/schema.json",
+
+	"definitions": {
+		"interaction": {
+			"type": "object",
+
+			"properties": {
+				"name": { "type": "string" },
+				"created_timestamp": { "type": "integer" },
+				"updated_timestamp": { "type": "integer" }
+			},
+			"required": [ "name", "created_timestamp", "updated_timestamp" ],
+			"additionalProperties": false,
+			"event": "web:facebook:address_book"
+		}
+	},
+
+	"type": "object",
+
+	"properties": {
+		"address_book": {
+			"type": "object",
+
+			"properties": {
+				"address_book": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/interaction"
+					}
+				}
+			},
+			"required": [ "address_book" ],
+			"additionalProperties": false
+		}
+	},
+	"required": [ "address_book" ],
+	"additionalProperties": false
+}

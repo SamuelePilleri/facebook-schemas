@@ -1,0 +1,48 @@
+{
+	"$schema": "http://localhost:8080/draft-04-enhanced/schema.json",
+
+	"type": "object",
+
+	"properties": {
+		"profile": {
+			"type": "object",
+
+			"title": "Facebook Profile Registered",
+			"event": "web:facebook:profile",
+
+			"properties": {
+				"name": {
+					"type": "object",
+
+					"properties": {
+						"full_name": { "type": "string" }
+					},
+					"required": [ "full_name" ],
+					"additionalProperties": true
+				},
+				"emails": {
+					"type": "object",
+
+					"properties": {
+						"emails": {
+							"type": "array",
+							"items": { "type": "string" }
+						},
+						"previous_emails": {
+							"type": "array",
+							"items": { "type": "string" }
+						}
+					},
+					"required": [ "emails", "previous_emails" ],
+					"additionalProperties": true
+				},
+				"registration_timestamp": { "type": "integer" },
+				"profile_uri": { "type": "string" }
+			},
+			"required": [ "name", "emails", "registration_timestamp" ],
+			"additionalProperties": true
+		}
+	},
+	"required": [ "profile" ],
+	"additionalProperties": false
+}

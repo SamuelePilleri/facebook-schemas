@@ -1,0 +1,55 @@
+{
+	"$schema": "http://localhost:8080/draft-04-enhanced/schema.json",
+
+	"type": "object",
+
+	"title": "Facebook Media Uploaded",
+	"event": "web:facebook:media",
+
+	"definitions": {
+		"metadata": {
+			"type": "object",
+
+			"properties": {
+				"upload_ip": { "type": "string" }
+			},
+			"required": [ "upload_ip" ],
+			"additionalProperties": false
+		}
+	},
+
+	"properties": {
+		"uri": { "type": "string" },
+		"creation_timestamp": { "type": "integer" },
+		"description": { "type": "string" },
+		"media_metadata": {
+			"type": "object",
+
+			"properties": {
+				"photo_metadata": {
+					"$ref": "#/definitions/metadata"
+				}
+			},
+			"minProperties": 1,
+			"maxProperties": 1,
+			"additionalProperties": false
+		},
+		"comments": {
+			"type": "array",
+
+			"items": {
+				"type": "object",
+
+				"properties": {
+					"timestamp": { "type": "integer" },
+					"comment": { "type": "string" },
+					"author": { "type": "string" }
+				},
+				"required": [ "timestamp", "comment", "author" ],
+				"additionalProperties": false
+			}
+		}
+	},
+	"required": [ "uri", "creation_timestamp", "media_metadata" ],
+	"additionalProperties": false
+}

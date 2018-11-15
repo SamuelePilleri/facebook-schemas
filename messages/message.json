@@ -1,0 +1,114 @@
+{
+	"$schema": "http://localhost:8080/draft-04-enhanced/schema.json",
+
+	"type": "object",
+
+	"properties": {
+		"participants": {
+			"type": "array",
+
+			"items": {
+				"type": "object",
+
+				"properties": {
+					"name": { "type": "string" }
+				},
+				"required": [ "name" ],
+				"additionalProperties": false
+			}
+		},
+		"messages": {
+			"type": "array",
+
+			"items": {
+				"type": "object",
+
+				"properties": {
+					"sender_name": { "type": "string" },
+					"timestamp_ms": { "type": "integer" },
+					"content": { "type": "string" },
+					"type": { "type": "string" },
+					"files": {
+						"type": "array",
+
+						"items": {
+							"type": "object",
+
+							"properties": {
+								"uri": { "type": "string" }
+							},
+							"required": [ "uri" ],
+							"additionalProperties": false
+						}
+					},
+					"photos": {
+						"type": "array",
+
+						"items": {
+							"type": "object",
+
+							"properties": {
+								"uri": { "type": "string" }
+							},
+							"required": [ "uri" ],
+							"additionalProperties": false
+						}
+					},
+					"audio_files": {
+						"type": "array",
+
+						"items": {
+							"type": "object",
+
+							"properties": {
+								"uri": { "type": "string" }
+							},
+							"required": [ "uri" ],
+							"additionalProperties": false
+						}
+					},
+					"share": {
+						"type": "object",
+
+						"properties": {
+							"link": { "type": "string" }
+						},
+						"required": [ "link" ],
+						"additionalProperties": false
+					},
+					"sticker": {
+						"type": "object",
+
+						"properties": {
+							"uri": { "type": "string" }
+						},
+						"required": [ "uri" ],
+						"additionalProperties": false
+					},
+					"reactions": {
+						"type": "array",
+
+						"items": {
+							"type": "object",
+
+							"properties": {
+								"reaction": { "type": "string" },
+								"actor": { "type": "string" }
+							},
+							"required": [ "reaction", "actor" ],
+							"additionalProperties": false
+						}
+					}
+				},
+				"required": [ "sender_name", "timestamp_ms", "type" ],
+				"additionalProperties": false
+			}
+		},
+		"title": { "type": "string" },
+		"is_still_participant": { "type": "boolean" },
+		"thread_type": { "type": "string" },
+		"thread_path": { "type": "string" }
+	},
+	"required": [ "participants", "messages", "title", "is_still_participant", "thread_type", "thread_path" ],
+	"additionalProperties": false
+}

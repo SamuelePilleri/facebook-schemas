@@ -1,0 +1,44 @@
+{
+	"$schema": "http://localhost:8080/draft-04-enhanced/schema.json",
+
+	"definitions": {
+		"record": {
+			"type": "object",
+
+			"title": "Facebook Administrative Record",
+			"event": "web:facebook:admin_record",
+
+			"properties": {
+				"event": { "type": "string" },
+				"session": {
+					"type": "object",
+
+					"properties": {
+						"created_timestamp": { "type": "integer" },
+						"ip_address": { "type": "string" },
+						"user_agent": { "type": "string" },
+						"datr_cookie": { "type": "string" }
+					},
+					"required": [ "created_timestamp", "ip_address" ],
+					"additionalProperties": false
+				}
+			},
+			"required": [ "event", "session" ],
+			"additionalProperties": false
+		}
+	},
+
+	"type": "object",
+
+	"properties": {
+		"admin_records": {
+			"type": "array",
+
+			"items": {
+				"$ref": "#/definitions/record"
+			}
+		}
+	},
+	"required": [ "admin_records" ],
+	"additionalProperties": false
+}

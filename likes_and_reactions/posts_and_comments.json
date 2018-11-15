@@ -1,0 +1,57 @@
+{
+	"$schema": "http://localhost:8080/draft-04-enhanced/schema.json",
+
+	"definitions": {
+		"like": {
+			"type": "object",
+
+			"title": "Facebook Like",
+			"event": "web:facebook:like:like",
+
+			"properties": {
+				"title": { "type": "string" },
+				"timestamp": { "type": "integer" },
+				"data": {
+					"type": "array",
+
+					"items": {
+						"type": "object",
+
+						"properties": {
+							"reaction": {
+								"type": "object",
+
+								"properties": {
+									"reaction": { "type": "string" },
+									"actor": { "type": "string" }
+								},
+								"required": [ "actor", "reaction"],
+								"additionalProperties": false
+							}
+						},
+						"required": [ "reaction" ],
+						"additionalProperties": false
+					},
+					"minItems": 1,
+					"maxItems": 1
+				}
+			},
+			"required": [ "title", "timestamp", "data" ],
+			"additionalProperties": false
+		}
+	},
+
+	"type": "object",
+
+	"properties": {
+		"reactions": {
+			"type": "array",
+
+			"items": {
+				"$ref": "#/definitions/like"
+			}
+		}
+	},
+	"required": [ "reactions" ],
+	"additionalProperties": false
+}

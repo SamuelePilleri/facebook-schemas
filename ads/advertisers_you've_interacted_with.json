@@ -1,0 +1,46 @@
+{
+	"$schema": "http://localhost:8080/draft-04-enhanced/schema.json",
+
+	"definitions": {
+		"history": {
+			"type": "object",
+
+			"title": "Facebook Advertiser Interaction",
+			"event": "web:facebook:ads:interaction",
+
+			"properties": {
+				"action": { "type": "string" },
+				"title": { "type": "string" },
+				"timestamp": { "type": "integer" }
+			},
+			"required": [ "action", "title", "timestamp" ],
+			"additionalProperties": false
+		}
+	},
+
+	"type": "object",
+
+	"properties": {
+		"topics": {
+			"type": "array",
+			"maxItems": 0
+		},
+		"custom_audiences": {
+			"type": "array",
+			"maxItems": 0
+		},
+		"lead_gen_info": {
+			"type": "array",
+			"maxItems": 0
+		},
+		"history": {
+			"type": "array",
+
+			"items": {
+				"$ref": "#/definitions/history"
+			}
+		}
+	},
+	"required": [ "topics", "custom_audiences", "lead_gen_info", "history" ],
+	"additionalProperties": false
+}

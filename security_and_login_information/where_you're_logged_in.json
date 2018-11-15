@@ -1,0 +1,39 @@
+{
+	"$schema": "http://localhost:8080/draft-04-enhanced/schema.json",
+
+	"definitions": {
+		"session": {
+			"type": "object",
+
+			"title": "Facebook Active Session",
+			"event": "web:facebook:active_session",
+
+			"properties": {
+				"created_timestamp": { "type": "integer" },
+				"updated_timestamp": { "type": "integer" },
+				"ip_address": { "type": "string" },
+				"user_agent": { "type": "string" },
+				"datr_cookie": { "type": "string" },
+				"device": { "type": "string" },
+				"location": { "type": "string" },
+				"app": { "type": "string" }
+			},
+			"required": [ "created_timestamp", "ip_address", "datr_cookie", "device", "location" ],
+			"additionalProperties": false
+		}
+	},
+
+	"type": "object",
+
+	"properties": {
+		"active_sessions": {
+			"type": "array",
+
+			"items": {
+				"$ref": "#/definitions/session"
+			}
+		}
+	},
+	"required": [ "active_sessions" ],
+	"additionalProperties": false
+}

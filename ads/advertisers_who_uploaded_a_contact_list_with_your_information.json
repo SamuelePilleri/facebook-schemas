@@ -1,0 +1,26 @@
+{
+	"$schema": "http://localhost:8080/draft-04-enhanced/schema.json",
+
+	"type": "object",
+
+	"properties": {
+		"topics": {
+			"type": "array",
+			"maxItems": 0
+		},
+		"custom_audiences": {
+			"type": "array",
+			"items": { "type": "string" }
+		},
+		"lead_gen_info": {
+			"type": "array",
+			"maxItems": 0
+		},
+		"history": {
+			"type": "array",
+			"maxItems": 0
+		}
+	},
+	"required": [ "topics", "custom_audiences", "lead_gen_info", "history" ],
+	"additionalProperties": false
+}

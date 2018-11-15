@@ -1,0 +1,43 @@
+{
+	"$schema": "http://localhost:8080/draft-04-enhanced/schema.json",
+
+	"definitions": {
+		"record": {
+			"type": "object",
+
+			"title": "Facebook Login Protection Record",
+			"event": "web:facebook:login_protection_data",
+
+			"properties": {
+				"name": { "type": "string" },
+				"session": {
+					"type": "object",
+
+					"properties": {
+						"created_timestamp": { "type": "integer" },
+						"updated_timestamp": { "type": "integer" },
+						"ip_address": { "type": "string" }
+					},
+					"required": [ "created_timestamp" ],
+					"additionalProperties": false
+				}
+			},
+			"required": [ "name", "session" ],
+			"additionalProperties": false
+		}
+	},
+
+	"type": "object",
+
+	"properties": {
+		"login_protection_data": {
+			"type": "array",
+
+			"items": {
+				"$ref": "#/definitions/record"
+			}
+		}
+	},
+	"required": [ "login_protection_data" ],
+	"additionalProperties": false
+}

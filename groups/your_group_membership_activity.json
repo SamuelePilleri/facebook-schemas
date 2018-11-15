@@ -1,0 +1,62 @@
+{
+	"$schema": "http://localhost:8080/draft-04-enhanced/schema.json",
+
+	"definitions": {
+		"groups": {
+			"type": "object",
+
+			"title": "Facebook Group Joined",
+			"event": "web:facebook:groups:joined",
+
+			"properties": {
+				"title": { "type": "string" },
+				"timestamp": { "type": "integer" },
+				"attachments": {
+					"type": "array",
+
+					"items": {
+						"type": "object",
+
+						"properties": {
+							"data": {
+								"type": "array",
+
+								"items": {
+									"type": "object",
+
+									"properties": {
+										"name": { "type": "string" }
+									},
+									"required": [ "name" ],
+									"additionalProperties": false
+								},
+								"minItems": 1,
+								"maxItems": 1
+							}
+						},
+						"required": [ "data" ],
+						"additionalProperties": false
+					},
+					"minItems": 1,
+					"maxItems": 1
+				}
+			},
+			"required": [ "title", "timestamp", "attachments" ],
+			"additionalProperties": false
+		}
+	},
+
+	"type": "object",
+
+	"properties": {
+		"groups_joined": {
+			"type": "array",
+
+			"items": {
+				"$ref": "#/definitions/groups"
+			}
+		}
+	},
+	"required": [ "groups_joined" ],
+	"additionalProperties": false
+}

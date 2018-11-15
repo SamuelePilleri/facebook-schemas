@@ -1,0 +1,36 @@
+{
+	"$schema": "http://localhost:8080/draft-04-enhanced/schema.json",
+
+	"definitions": {
+		"activity": {
+			"type": "object",
+
+			"title": "Facebook Account Activity",
+			"event": "web:facebook:account_activity",
+
+			"properties": {
+				"action": { "type": "string" },
+				"timestamp": { "type": "integer" },
+				"ip_address": { "type": "string" },
+				"user_agent": { "type": "string" },
+				"datr_cookie": { "type": "string" }
+			},
+			"required": [ "action", "timestamp", "ip_address" ],
+			"additionalProperties": false
+		}
+	},
+
+	"type": "object",
+
+	"properties": {
+		"account_activity": {
+			"type": "array",
+
+			"items": {
+				"$ref": "#/definitions/activity"
+			}
+		}
+	},
+	"required": [ "account_activity" ],
+	"additionalProperties": false
+}

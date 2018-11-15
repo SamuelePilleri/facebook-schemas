@@ -1,0 +1,11 @@
+{
+	"$schema": "http://localhost:8080/draft-04-enhanced/schema.json",
+
+	"type": "object",
+
+	"properties": {
+		"friend_peer_group": { "type": "string" }
+	},
+	"required": [ "friend_peer_group" ],
+	"additionalProperties": false
+}

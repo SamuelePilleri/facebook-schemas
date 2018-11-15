@@ -1,0 +1,136 @@
+{
+	"$schema": "http://localhost:8080/draft-04-enhanced/schema.json",
+
+	"definitions": {
+		"comment": {
+			"type": "object",
+
+			"title": "Facebook Comment",
+			"event": "web:facebook:comment:comment",
+			
+			"properties": {
+				"title": { "type": "string" },
+				"timestamp": { "type": "integer" },
+				"data": {
+					"type": "array",
+
+					"items": {
+						"type": "object",
+
+						"properties": {
+							"comment": {
+								"type": "object",
+
+								"properties": {
+									"author": { "type": "string" },
+									"comment": { "type": "string" },
+									"timestamp": { "type": "integer" }
+								},
+								"required": [ "author", "comment", "timestamp" ],
+								"additionalProperties": false
+							}
+						},
+						"required": [ "comment" ],
+						"additionalProperties": false
+					},
+					"minItems": 1,
+					"maxItems": 1
+				},
+				"attachments": {
+					"type": "array",
+
+					"items": {
+						"type": "object",
+
+						"properties": {
+							"data": {
+								"type": "array",
+
+								"items": {
+									"type": "object",
+
+									"properties": {
+										"external_context": {
+											"type": "object",
+
+											"properties": {
+												"url": { "type": "string" }
+											},
+											"required": [ "url" ],
+											"additionalProperties": false
+										}
+									},
+									"required": [ "external_context" ],
+									"additionalProperties": false
+								}
+							}
+						},
+						"required": [ "data" ],
+						"additionalProperties": false
+					}
+				}
+			},
+			"required": [ "title", "timestamp", "data" ],
+			"additionalProperties": false
+		},
+		"group_comment": {
+			"type": "object",
+
+			"title": "Facebook Group Comment",
+			"event": "web:facebook:comment:group_comment",
+			
+			"properties": {
+				"title": { "type": "string" },
+				"timestamp": { "type": "integer" },
+				"data": {
+					"type": "array",
+
+					"items": {
+						"type": "object",
+
+						"properties": {
+							"comment": {
+								"type": "object",
+
+								"properties": {
+									"author": { "type": "string" },
+									"comment": { "type": "string" },
+									"timestamp": { "type": "integer" },
+									"group": { "type": "string" } 
+								},
+								"required": [ "author", "comment", "timestamp", "group" ],
+								"additionalProperties": false
+							}
+						},
+						"required": [ "comment" ],
+						"additionalProperties": false
+					},
+					"minItems": 1,
+					"maxItems": 1
+				},
+				"attachments": {
+					"$ref": "http://localhost:8080/_partials/attachments.json"
+				}
+			},
+			"required": [ "title", "timestamp", "data" ],
+			"additionalProperties": false
+		}
+	},
+
+	"type": "object",
+
+	"properties": {
+		"comments": {
+			"type": "array",
+
+			"items": {
+				"oneOf": [
+					{ "$ref": "#/definitions/comment" },
+					{ "$ref": "#/definitions/group_comment" }
+				]
+			}
+		}
+	},
+	"required": [ "comments" ],
+	"additionalProperties": false
+}

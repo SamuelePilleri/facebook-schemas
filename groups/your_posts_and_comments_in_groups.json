@@ -1,0 +1,20 @@
+{
+	"$schema": "http://localhost:8080/draft-04-enhanced/schema.json",
+
+	"type": "object",
+
+	"properties": {
+		"group_posts": {
+			"type": "array",
+
+			"items": {
+				"oneOf": [
+					{ "$ref": "http://localhost:8080/posts/your_posts.json#/definitions/post" },
+					{ "$ref": "http://localhost:8080/comments/comments.json#/definitions/group_comment" }
+				]
+			}
+		}
+	},
+	"required": [ "group_posts" ],
+	"additionalProperties": false
+}

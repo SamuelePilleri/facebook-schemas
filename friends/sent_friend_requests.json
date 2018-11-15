@@ -1,0 +1,33 @@
+{
+	"$schema": "http://localhost:8080/draft-04-enhanced/schema.json",
+
+	"definitions": {
+		"sent_requests": {
+			"type": "object",
+
+			"title": "Facebook Sent Friend Request",
+			"event": "web:facebook:friends:sent",
+
+			"properties": {
+				"name": { "type": "string" },
+				"timestamp": { "type": "integer" }
+			},
+			"required": [ "name", "timestamp" ],
+			"additionalProperties": false
+		}
+	},
+
+	"type": "object",
+
+	"properties": {
+		"sent_requests": {
+			"type": "array",
+
+			"items": {
+				"$ref": "#/definitions/sent_requests"
+			}
+		}
+	},
+	"required": [ "sent_requests" ],
+	"additionalProperties": false
+}

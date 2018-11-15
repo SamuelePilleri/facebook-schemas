@@ -1,0 +1,24 @@
+{
+	"$schema": "http://localhost:8080/draft-04-enhanced/schema.json",
+
+	"type": "object",
+
+	"event": "web:facebook:media:album",
+
+	"properties": {
+		"name": { "type": "string" },
+		"photos": {
+			"type": "array",
+			
+			"items": {
+				"$ref": "http://localhost:8080/_partials/media.json"
+			}
+		},
+		"cover_photo": {
+			"$ref": "http://localhost:8080/_partials/media.json"
+		},
+		"last_modified_timestamp": { "type": "integer" }
+	},
+	"required": [ "name", "photos", "cover_photo", "last_modified_timestamp" ],
+	"additionalProperties": false
+}

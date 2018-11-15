@@ -1,0 +1,31 @@
+{
+	"$schema": "http://localhost:8080/draft-04-enhanced/schema.json",
+
+	"definitions": {
+		"events_invited": {
+			"type": "object",
+
+			"properties": {
+				"name": { "type": "string" },
+				"start_timestamp": { "type": "integer" },
+				"end_timestamp": { "type": "integer" }
+			},
+			"required": [ "name", "start_timestamp", "end_timestamp" ],
+			"additionalProperties": false
+		}
+	},
+
+	"type": "object",
+
+	"properties": {
+		"events_invited": {
+			"type": "array",
+
+			"items": {
+				"$ref": "#/definitions/events_invited"
+			}
+		}
+	},
+	"required": [ "events_invited" ],
+	"additionalProperties": false
+}

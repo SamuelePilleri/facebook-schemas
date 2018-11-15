@@ -1,0 +1,48 @@
+{
+	"$schema": "http://localhost:8080/draft-04-enhanced/schema.json",
+
+	"definitions": {
+		"search": {
+			"type": "object",
+
+			"title": "Facebook Search",
+			"event": "web:facebook:search",
+
+			"properties": {
+				"title": { "type": "string" },
+				"timestamp": { "type": "integer" },
+				"data": {
+					"type": "array",
+
+					"items": {
+						"type": "object",
+
+						"properties": {
+							"text": { "type": "string" }
+						},
+						"required": [ "text" ],
+						"additionalProperties": false
+					},
+					"minItems": 1,
+					"maxItems": 1
+				}
+			},
+			"required": [ "title", "timestamp" ],
+			"additionalProperties": false
+		}
+	},
+
+	"type": "object",
+
+	"properties": {
+		"searches": {
+			"type": "array",
+
+			"items": {
+				"$ref": "#/definitions/search"
+			}
+		}
+	},
+	"required": [ "searches" ],
+	"additionalProperties": false
+}

@@ -1,0 +1,35 @@
+{
+	"$schema": "http://localhost:8080/draft-04-enhanced/schema.json",
+
+	"definitions": {
+		"action": {
+			"type": "object",
+
+			"title": "Facebook Account Access",
+			"event": "web:facebook:login",
+
+			"properties": {
+				"action": { "type": "string" },
+				"timestamp": { "type": "integer" },
+				"site": { "type": "string" },
+				"ip_address": { "type": "string" }
+			},
+			"required": [ "action", "timestamp", "site", "ip_address" ],
+			"additionalProperties": false
+		}
+	},
+
+	"type": "object",
+
+	"properties": {
+		"account_accesses": {
+			"type": "array",
+
+			"items": {
+				"$ref": "#/definitions/action"
+			}
+		}
+	},
+	"required": [ "account_accesses" ],
+	"additionalProperties": false
+}

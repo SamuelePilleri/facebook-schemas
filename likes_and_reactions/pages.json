@@ -1,0 +1,33 @@
+{
+	"$schema": "http://localhost:8080/draft-04-enhanced/schema.json",
+
+	"definitions": {
+		"page_like": {
+			"type": "object",
+
+			"title": "Facebook Page Like",
+			"event": "web:facebook:like:page",
+
+			"properties": {
+				"name": { "type": "string" },
+				"timestamp": { "type": "integer" }
+			},
+			"required": [ "name", "timestamp" ],
+			"additionalProperties": false
+		}
+	},
+
+	"type": "object",
+
+	"properties": {
+		"page_likes": {
+			"type": "array",
+
+			"items": {
+				"$ref": "#/definitions/page_like"
+			}
+		}
+	},
+	"required": [ "page_likes" ],
+	"additionalProperties": false
+}

@@ -1,0 +1,26 @@
+{
+	"$schema": "http://localhost:8080/draft-04-enhanced/schema.json",
+
+	"type": "object",
+
+	"properties": {
+		"profile_updates": {
+			"type": "array",
+
+			"items": {
+				"type": "object",
+
+				"title": "Facebook Profile Update",
+				"event": "web:facebook:profile:update",
+
+				"properties": {
+					"timestamp": { "type": "integer" }
+				},
+				"required": [ "timestamp" ],
+				"additionalProperties": true
+			}
+		}
+	},
+	"required": [ "profile_updates" ],
+	"additionalProperties": false
+}

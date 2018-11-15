@@ -1,0 +1,52 @@
+{
+	"$schema": "http://localhost:8080/draft-04-enhanced/schema.json",
+
+	"type": "array",
+
+	"items": {
+		"type": "object",
+
+		"properties": {
+			"data": {
+				"type": "array",
+
+				"items": {
+					"anyOf": [
+						{
+							"type": "object",
+
+							"properties": {
+								"external_context": {
+									"type": "object",
+
+									"properties": {
+										"url": { "type": "string" }
+									},
+									"required": [ "url" ],
+									"additionalProperties": false
+								}
+							},
+							"required": [ "external_context" ],
+							"additionalProperties": false
+						},
+						{
+							"type": "object",
+
+							"properties": {
+								"media": {
+									"$ref": "media.json"
+								}
+							},
+							"required": [ "media" ],
+							"additionalProperties": false
+						}
+					]
+				}
+			}
+		},
+		"required": [ "data" ],
+		"additionalProperties": false
+	},
+	"minItems": 1,
+	"maxItems": 1
+}

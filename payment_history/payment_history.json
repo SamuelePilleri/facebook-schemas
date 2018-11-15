@@ -1,0 +1,19 @@
+{
+	"$schema": "http://localhost:8080/draft-04-enhanced/schema.json",
+
+	"type": "object",
+
+	"properties": {
+		"payments": {
+			"type": "object",
+			
+			"properties": {
+				"preferred_currency": { "type": "string" }
+			},
+			"required": [ "preferred_currency" ],
+			"additionalProperties": false
+		}
+	},
+	"required": [ "payments" ],
+	"additionalProperties": false
+}

@@ -1,0 +1,33 @@
+{
+	"$schema": "http://localhost:8080/draft-04-enhanced/schema.json",
+
+	"definitions": {
+		"received_requests": {
+			"type": "object",
+
+			"title": "Facebook Received Friend Request",
+			"event": "web:facebook:friends:received",
+
+			"properties": {
+				"name": { "type": "string" },
+				"timestamp": { "type": "integer" }
+			},
+			"required": [ "name", "timestamp" ],
+			"additionalProperties": false
+		}
+	},
+
+	"type": "object",
+
+	"properties": {
+		"received_requests": {
+			"type": "array",
+
+			"items": {
+				"$ref": "#/definitions/received_requests"
+			}
+		}
+	},
+	"required": [ "received_requests" ],
+	"additionalProperties": false
+}

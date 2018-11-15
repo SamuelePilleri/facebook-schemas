@@ -1,0 +1,66 @@
+{
+	"$schema": "http://localhost:8080/draft-04-enhanced/schema.json",
+
+	"definitions": {
+		"post": {
+			"type": "object",
+
+			"title": "Facebook Post",
+			"event": "web:facebook:post",
+
+			"properties": {
+				"title": { "type": "string" },
+				"timestamp": { "type": "integer" },
+				"data": {
+					"type": "array",
+
+					"items": {
+						"anyOf": [
+							{
+								"type": "object",
+
+								"properties": {
+									"post": { "type": "string" }
+								},
+								"required": [ "post" ],
+								"additionalProperties": false
+							},
+							{
+								"type": "object",
+
+								"title": "Facebook Post Update",
+								"event": "web:facebook:post:update",
+
+								"properties": {
+									"update_timestamp": { "type": "integer" }
+								},
+								"required": [ "update_timestamp" ],
+								"additionalProperties": false
+							}
+						],
+						"maxItems": 2
+					}
+				},
+				"attachments": {
+					"$ref": "http://localhost:8080/_partials/attachments.json"
+				}
+			},
+			"required": [ "timestamp", "data" ],
+			"additionalProperties": false
+		}
+	},
+
+	"type": "object",
+
+	"properties": {
+		"status_updates": {
+			"type": "array",
+
+			"items": {
+				"$ref": "#/definitions/post"
+			}
+		}
+	},
+	"required": [ "status_updates" ],
+	"additionalProperties": false
+}

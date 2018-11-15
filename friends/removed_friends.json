@@ -1,0 +1,33 @@
+{
+	"$schema": "http://localhost:8080/draft-04-enhanced/schema.json",
+
+	"definitions": {
+		"deleted_friends": {
+			"type": "object",
+
+			"title": "Facebook Removed Friend",
+			"event": "web:facebook:friends:removed",
+
+			"properties": {
+				"name": { "type": "string" },
+				"timestamp": { "type": "integer" }
+			},
+			"required": [ "name", "timestamp" ],
+			"additionalProperties": false
+		}
+	},
+
+	"type": "object",
+
+	"properties": {
+		"deleted_friends": {
+			"type": "array",
+
+			"items": {
+				"$ref": "#/definitions/deleted_friends"
+			}
+		}
+	},
+	"required": [ "deleted_friends" ],
+	"additionalProperties": false
+}

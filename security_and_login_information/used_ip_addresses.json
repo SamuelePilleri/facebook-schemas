@@ -1,0 +1,23 @@
+{
+	"$schema": "http://localhost:8080/draft-04-enhanced/schema.json",
+
+	"type": "object",
+
+	"properties": {
+		"used_ip_address": {
+			"type": "array",
+			
+			"items": {
+				"type": "object",
+
+				"properties": {
+					"ip": { "type": "string" }
+				},
+				"required": [ "ip" ],
+				"additionalProperties": false
+			}
+		}
+	},
+	"required": [ "used_ip_address" ],
+	"additionalProperties": false
+}

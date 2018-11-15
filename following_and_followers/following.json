@@ -1,0 +1,33 @@
+{
+	"$schema": "http://localhost:8080/draft-04-enhanced/schema.json",
+
+	"definitions": {
+		"following": {
+			"type": "object",
+
+			"title": "Facebook Following",
+			"event": "web:facebook:following",
+
+			"properties": {
+				"name": { "type": "string" },
+				"timestamp": { "type": "integer" }
+			},
+			"required": [ "name", "timestamp" ],
+			"additionalProperties": false
+		}
+	},
+
+	"type": "object",
+
+	"properties": {
+		"following": {
+			"type": "array",
+
+			"items": {
+				"$ref": "#/definitions/following"
+			}
+		}
+	},
+	"required": [ "following" ],
+	"additionalProperties": false
+}

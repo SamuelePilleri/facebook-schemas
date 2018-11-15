@@ -1,0 +1,34 @@
+{
+	"$schema": "http://localhost:8080/draft-04-enhanced/schema.json",
+
+	"definitions": {
+		"friends": {
+			"type": "object",
+
+			"title": "Facebook New Friend",
+			"event": "web:facebook:friends:new",
+
+			"properties": {
+				"name": { "type": "string" },
+				"timestamp": { "type": "integer" },
+				"contact_info": { "type": "string" }
+			},
+			"required": [ "name", "timestamp" ],
+			"additionalProperties": false
+		}
+	},
+
+	"type": "object",
+
+	"properties": {
+		"friends": {
+			"type": "array",
+
+			"items": {
+				"$ref": "#/definitions/friends"
+			}
+		}
+	},
+	"required": [ "friends" ],
+	"additionalProperties": false
+}
