@@ -12,6 +12,6 @@ Hence this project aims at reconstructing the possible structure of such files, 
 
 ## Contributing
 
-Given the purpose of this project, the main contribution the community may bring is a better coverage of dump files. To achieve this, users can download their profile and inspect it with `reporter.py`, a tool created to spot and outline uncovered files and fields. The tool is compatible with both Python 2 and 3 and only requires the [jsonschema](https://github.com/Julian/jsonschema) library, found in [pypi](https://pypi.org/project/jsonschema/) or available as a [standalone package](https://packages.debian.org/python-jsonschema) in Debian.
+Given the purpose of this project, the main contribution the community may bring is a better coverage of dump files. To achieve this, users can download their profile and inspect it with `reporter.py`, a tool created to spot and outline uncovered files and fields. The tool is compatible with both Python 2 and 3 and only requires the [jsonschema](https://github.com/Julian/jsonschema) library, found in [pypi](https://pypi.org/project/jsonschema/) or available as a [standalone package](https://packages.debian.org/python-jsonschema) in Debian and most derivatives.
 
 Pull requests are welcome.
