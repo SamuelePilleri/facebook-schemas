@@ -1,18 +1,72 @@
 {
-	"$schema": "http://localhost:8080/draft-04-enhanced/schema.json",
+	"$schema": "http://json-schema.org/draft-04/schema",
 
 	"definitions": {
 		"interaction": {
 			"type": "object",
 
+			"event": "web:facebook:address_book",
+
 			"properties": {
 				"name": { "type": "string" },
 				"created_timestamp": { "type": "integer" },
-				"updated_timestamp": { "type": "integer" }
+				"updated_timestamp": { "type": "integer" },
+				"details": {
+					"type": "array",
+
+					"items": {
+						"anyOf": [
+							{
+								"type": "object",
+
+								"properties": {
+									"contact_point": {
+										"type": "string"
+									}
+								},
+								"required": [ "contact_point" ],
+								"additionalProperties": false
+							},
+							{
+								"type": "object",
+
+								"properties": {
+									"extra_data": {
+										"type": "object",
+
+										"oneOf": [
+											{
+												"properties": {
+													"number_times_contacted": { "type": "string" },
+													"contact_id": { "type": "string" },
+													"starred": { "type": "string" },
+													"last_time_contacted": { "type": "string" },
+													"custom_ringtone": { "type": "string" },
+													"in_visible_group": { "type": "string" },
+													"send_to_voicemail": { "type": "string" },
+													"is_user_profile": { "type": "string" }
+												},
+												"additionalProperties": false
+											},
+											{
+												"properties": {
+													"username": { "type": "string" },
+													"phone_number": { "type": "string" }
+												},
+												"additionalProperties": false
+											}
+										]
+									}
+								},
+								"required": [ "extra_data" ],
+								"additionalProperties": false
+							}
+						]
+					}
+				}
 			},
 			"required": [ "name", "created_timestamp", "updated_timestamp" ],
-			"additionalProperties": false,
-			"event": "web:facebook:address_book"
+			"additionalProperties": false
 		}
 	},
 

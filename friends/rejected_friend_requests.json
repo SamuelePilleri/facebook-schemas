@@ -1,5 +1,5 @@
 {
-	"$schema": "http://localhost:8080/draft-04-enhanced/schema.json",
+	"$schema": "http://json-schema.org/draft-04/schema",
 
 	"definitions": {
 		"rejected_requests": {
@@ -10,7 +10,8 @@
 
 			"properties": {
 				"name": { "type": "string" },
-				"timestamp": { "type": "integer" }
+				"timestamp": { "type": "integer" },
+				"marked_as_spam": { "type": "boolean" }
 			},
 			"required": [ "name", "timestamp" ],
 			"additionalProperties": false

@@ -1,0 +1,80 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema",
+
+	"definitions": {
+		"sms": {
+			"type": "object",
+
+			"properties": {
+				"message_type": { "type": "string" },
+				"sent_timestamp": { "type": "integer" },
+				"received_timestamp": { "type": "integer" },
+				"message_status": { "type": "string" },
+				"seen_state": { "type": "boolean" },
+				"read_state": { "type": "boolean" }
+			},
+			"required": [ "message_type", "sent_timestamp", "received_timestamp", "message_status", "seen_state", "read_state" ],
+			"additionalProperties": false
+		},
+		"mms": {
+			"type": "object",
+
+			"properties": {
+				"content_type": { "type": "string" },
+				"sent_timestamp": { "type": "integer" },
+				"received_timestamp": { "type": "integer" },
+				"delivery_timestamp": { "type": "integer" },
+				"message_box": { "type": "string" }
+			},
+			"required": [ "sent_timestamp", "received_timestamp", "delivery_timestamp", "message_box" ],
+			"additionalProperties": false
+		}
+	},
+
+	"type": "object",
+
+	"properties": {
+		"message_logs": {
+			"type": "object",
+
+			"properties": {
+				"sms_logs": {
+					"type": "object",
+
+					"event": "web:facebook:sms_logs",
+
+					"patternProperties": {
+						"^.+$": {
+							"type": "array",
+
+							"items": {
+								"$ref": "#/definitions/sms"
+							}
+						}
+					},
+					"additionalProperties": false
+				},
+				"mms_logs": {
+					"type": "object",
+
+					"event": "web:facebook:mms_logs",
+
+					"patternProperties": {
+						"^.+$": {
+							"type": "array",
+
+							"items": {
+								"$ref": "#/definitions/mms"
+							}
+						}
+					},
+					"additionalProperties": false
+				}
+			},
+			"required": [ "sms_logs" ],
+			"additionalProperties": false
+		}
+	},
+	"required": [ "message_logs" ],
+	"additionalProperties": false
+}

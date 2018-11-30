@@ -1,0 +1,36 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema",
+
+	"definitions": {
+		"like": {
+			"type": "object",
+
+			"title": "Facebook Page Like",
+			"event": "web:facebook:like:other_like",
+
+			"properties": {
+				"title": { "type": "string" },
+				"timestamp": { "type": "integer" },
+				"attachments": {
+					"$ref": "http://localhost:8080/_partials/attachments.json"
+				}
+			},
+			"required": [ "title", "timestamp", "attachments" ],
+			"additionalProperties": false
+		}
+	},
+
+	"type": "object",
+
+	"properties": {
+		"other_likes": {
+			"type": "array",
+
+			"items": {
+				"$ref": "#/definitions/like"
+			}
+		}
+	},
+	"required": [ "other_likes" ],
+	"additionalProperties": false
+}

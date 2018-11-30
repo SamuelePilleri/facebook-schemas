@@ -1,5 +1,5 @@
 {
-	"$schema": "http://localhost:8080/draft-04-enhanced/schema.json",
+	"$schema": "http://json-schema.org/draft-04/schema",
 
 	"definitions": {
 		"post": {
@@ -43,9 +43,14 @@
 				},
 				"attachments": {
 					"$ref": "http://localhost:8080/_partials/attachments.json"
+				},
+				"tags": {
+					"type": "array",
+					"items": { "type": "string" }
 				}
 			},
-			"required": [ "timestamp", "data" ],
+			"required": [ "timestamp" ],
+			"minProperties": 2,
 			"additionalProperties": false
 		}
 	},

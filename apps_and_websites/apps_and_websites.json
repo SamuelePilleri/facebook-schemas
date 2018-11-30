@@ -1,0 +1,27 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema",
+
+	"type": "object",
+
+	"properties": {
+		"installed_apps": {
+			"type": "array",
+
+			"items": {
+				"type": "object",
+
+				"title": "Facebook App Added",
+				"event": "web:facebook:apps:added",
+
+				"properties": {
+					"name": { "type": "string" },
+					"added_timestamp": { "type": "integer" }
+				},
+				"required": [ "name", "added_timestamp" ],
+				"additionalProperties": false
+			}
+		}
+	},
+	"required": [ "installed_apps" ],
+	"additionalProperties": false
+}

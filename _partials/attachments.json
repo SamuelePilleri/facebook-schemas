@@ -1,5 +1,5 @@
 {
-	"$schema": "http://localhost:8080/draft-04-enhanced/schema.json",
+	"$schema": "http://json-schema.org/draft-04/schema",
 
 	"type": "array",
 
@@ -19,22 +19,13 @@
 								"external_context": {
 									"type": "object",
 
-									"oneOf": [
-										{
-											"properties": {
-												"url": { "type": "string" }
-											},
-											"required": [ "url" ],
-											"additionalProperties": false
-										},
-										{
-											"properties": {
-												"name": { "type": "string" }
-											},
-											"required": [ "name" ],
-											"additionalProperties": false
-										}
-									]
+									"properties": {
+										"name": { "type": "string" },
+										"source": { "type": "string" },
+										"url": { "type": "string" }
+									},
+									"minProperties": 1,
+									"additionalProperties": false
 								}
 							},
 							"required": [ "external_context" ],
@@ -45,10 +36,51 @@
 
 							"properties": {
 								"media": {
-									"$ref": "media.json"
+									"$ref": "http://localhost:8080/_partials/media.json"
 								}
 							},
 							"required": [ "media" ],
+							"additionalProperties": false
+						},
+						{
+							"type": "object",
+
+							"properties": {
+								"for_sale_item": {
+									"$ref": "http://localhost:8080/_partials/marketplace.json#/definitions/for_sale_item"
+								}
+							},
+							"required": [ "for_sale_item" ],
+							"additionalProperties": false
+						},
+						{
+							"type": "object",
+
+							"properties": {
+								"place": {
+									"$ref": "http://localhost:8080/_partials/coordinate.json"
+								}
+							},
+							"required": [ "place" ],
+							"additionalProperties": false
+						},
+						{
+							"type": "object",
+
+							"properties": {
+								"event": {
+									"type": "object",
+
+									"properties": {
+										"name": { "type": "string" },
+										"start_timestamp": { "type": "integer" },
+										"end_timestamp": { "type": "integer" }
+									},
+									"required": [ "name", "start_timestamp", "end_timestamp" ],
+									"additionalProperties": false
+								}
+							},
+							"required": [ "event" ],
 							"additionalProperties": false
 						}
 					]
@@ -57,7 +89,5 @@
 		},
 		"required": [ "data" ],
 		"additionalProperties": false
-	},
-	"minItems": 1,
-	"maxItems": 1
+	}
 }

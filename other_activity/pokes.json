@@ -2,17 +2,19 @@
 	"$schema": "http://json-schema.org/draft-04/schema",
 
 	"definitions": {
-		"sent_requests": {
+		"poke": {
 			"type": "object",
 
-			"title": "Facebook Sent Friend Request",
-			"event": "web:facebook:friends:sent",
+			"title": "Facebook Poke",
+			"event": "web:facebook:poke",
 
 			"properties": {
-				"name": { "type": "string" },
+				"poker": { "type": "string" },
+				"pokee": { "type": "string" },
+				"rank": { "type": "integer" },
 				"timestamp": { "type": "integer" }
 			},
-			"required": [ "name", "timestamp" ],
+			"required": [ "poker", "pokee", "rank", "timestamp" ],
 			"additionalProperties": false
 		}
 	},
@@ -20,14 +22,14 @@
 	"type": "object",
 
 	"properties": {
-		"sent_requests": {
+		"pokes": {
 			"type": "array",
 
 			"items": {
-				"$ref": "#/definitions/sent_requests"
+				"$ref": "#/definitions/poke"
 			}
-		}
+		}	
 	},
-	"required": [ "sent_requests" ],
+	"required": [ "pokes" ],
 	"additionalProperties": false
 }

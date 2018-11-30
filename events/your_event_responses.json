@@ -1,0 +1,52 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema",
+
+	"definitions": {
+		"event": {
+			"type": "object",
+
+			"properties": {
+				"name": { "type": "string" },
+				"start_timestamp": { "type": "integer" },
+				"end_timestamp": { "type": "integer" }
+			},
+			"required": [ "name", "start_timestamp", "end_timestamp" ],
+			"additionalProperties": false
+		}
+	},
+
+	"type": "object",
+
+	"properties": {
+		"event_responses": {
+			"type": "object",
+
+			"properties": {
+				"events_joined": {
+					"type": "array",
+
+					"items": {
+						"$ref": "#/definitions/event"
+					}
+				},
+				"events_declined": {
+					"type": "array",
+
+					"items": {
+						"$ref": "#/definitions/event"
+					}
+				},
+				"events_interested": {
+					"type": "array",
+
+					"items": {
+						"$ref": "#/definitions/event"
+					}
+				}
+			},
+			"additionalProperties": false
+		}
+	},
+	"required": [ "event_responses" ],
+	"additionalProperties": false
+}

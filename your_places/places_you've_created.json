@@ -2,17 +2,18 @@
 	"$schema": "http://json-schema.org/draft-04/schema",
 
 	"definitions": {
-		"sent_requests": {
+		"place": {
 			"type": "object",
 
-			"title": "Facebook Sent Friend Request",
-			"event": "web:facebook:friends:sent",
+			"title": "Facebook Place Created",
+			"event": "web:facebook:places:created",
 
 			"properties": {
 				"name": { "type": "string" },
-				"timestamp": { "type": "integer" }
+				"url": { "type": "string" },
+				"creation_timestamp": { "type": "integer" }
 			},
-			"required": [ "name", "timestamp" ],
+			"required": [ "name", "url", "creation_timestamp" ],
 			"additionalProperties": false
 		}
 	},
@@ -20,14 +21,14 @@
 	"type": "object",
 
 	"properties": {
-		"sent_requests": {
+		"your_places": {
 			"type": "array",
 
 			"items": {
-				"$ref": "#/definitions/sent_requests"
+				"$ref": "#/definitions/place"
 			}
 		}
 	},
-	"required": [ "sent_requests" ],
+	"required": [ "your_places" ],
 	"additionalProperties": false
 }

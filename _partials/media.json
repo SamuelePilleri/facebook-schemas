@@ -1,5 +1,5 @@
 {
-	"$schema": "http://localhost:8080/draft-04-enhanced/schema.json",
+	"$schema": "http://json-schema.org/draft-04/schema",
 
 	"type": "object",
 
@@ -11,7 +11,8 @@
 			"type": "object",
 
 			"properties": {
-				"upload_ip": { "type": "string" }
+				"upload_ip": { "type": "string" },
+				"upload_timestamp": { "type": "integer" }
 			},
 			"required": [ "upload_ip" ],
 			"additionalProperties": false
@@ -19,6 +20,7 @@
 	},
 
 	"properties": {
+		"title": { "type": "string" },
 		"uri": { "type": "string" },
 		"creation_timestamp": { "type": "integer" },
 		"description": { "type": "string" },
@@ -28,10 +30,22 @@
 			"properties": {
 				"photo_metadata": {
 					"$ref": "#/definitions/metadata"
+				},
+				"video_metadata": {
+					"$ref": "#/definitions/metadata"
 				}
 			},
 			"minProperties": 1,
 			"maxProperties": 1,
+			"additionalProperties": false
+		},
+		"thumbnail": {
+			"type": "object",
+
+			"properties": {
+				"uri": { "type": "string" }
+			},
+			"required": [ "uri" ],
 			"additionalProperties": false
 		},
 		"comments": {
@@ -43,13 +57,14 @@
 				"properties": {
 					"timestamp": { "type": "integer" },
 					"comment": { "type": "string" },
-					"author": { "type": "string" }
+					"author": { "type": "string" },
+					"group": { "type": "string" }
 				},
 				"required": [ "timestamp", "comment", "author" ],
 				"additionalProperties": false
 			}
 		}
 	},
-	"required": [ "uri", "creation_timestamp", "media_metadata" ],
+	"required": [ "uri" ],
 	"additionalProperties": false
 }

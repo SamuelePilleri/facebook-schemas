@@ -1,0 +1,42 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema",
+
+	"definitions": {
+		"call": {
+			"type": "object",
+
+			"properties": {
+				"call_type": { "type": "string" },
+				"start_timestamp": { "type": "integer" },
+				"duration": { "type": "integer" },
+				"contact_name": { "type": "string" },
+				"number_label": { "type": "string" }
+			},
+			"required": [ "start_timestamp", "duration" ],
+			"additionalProperties": false
+		}
+	},
+
+	"type": "object",
+
+	"properties": {
+		"call_logs": {
+			"type": "object",
+
+			"event": "web:facebook:call_logs",
+
+			"patternProperties": {
+				"^.*$": {
+					"type": "array",
+
+					"items": {
+						"$ref": "#/definitions/call"
+					}
+				}
+			},
+			"additionalProperties": false
+		}	
+	},
+	"required": [ "call_logs" ],
+	"additionalProperties": false
+}

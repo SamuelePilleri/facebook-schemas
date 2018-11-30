@@ -1,0 +1,43 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema",
+
+	"definitions": {
+		"bought_item": {
+			"type": "object",
+
+			"title": "Facebook Marketplace Bought Item",
+			"event": "web:facebook:marketplace:bought_item",
+
+			"properties": {
+				"title": { "type": "string" },
+				"price": { "type": "string" },
+				"seller": { "type": "string" },
+				"created_timestamp": { "type": "integer" }
+			},
+			"required": [ "title", "price", "seller", "created_timestamp" ],
+			"additionalProperties": false
+		},
+		"for_sale_item": {
+			"type": "object",
+
+			"title": "Facebook Marketplace for Sale Item",
+			"event": "web:facebook:marketplace:for_sale_item",
+
+			"properties": {
+				"title": { "type": "string" },
+				"price": { "type": "string" },
+				"seller": { "type": "string" },
+				"created_timestamp": { "type": "integer" },
+				"updated_timestamp": { "type": "integer" },
+				"category": { "type": "string" },
+				"marketplace": { "type": "string" },
+				"location": {
+					"$ref": "http://localhost:8080/_partials/coordinate.json"
+				},
+				"description": { "type": "string" }
+			},
+			"required": [ "title", "price", "seller", "created_timestamp", "updated_timestamp", "marketplace", "location" ],
+			"additionalProperties": false
+		}
+	}
+}

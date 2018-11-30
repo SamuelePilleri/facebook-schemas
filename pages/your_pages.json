@@ -2,11 +2,11 @@
 	"$schema": "http://json-schema.org/draft-04/schema",
 
 	"definitions": {
-		"sent_requests": {
+		"page": {
 			"type": "object",
 
-			"title": "Facebook Sent Friend Request",
-			"event": "web:facebook:friends:sent",
+			"title": "Facebook Page Created",
+			"event": "web:facebook:page_created",
 
 			"properties": {
 				"name": { "type": "string" },
@@ -20,14 +20,14 @@
 	"type": "object",
 
 	"properties": {
-		"sent_requests": {
+		"pages": {
 			"type": "array",
-
+			
 			"items": {
-				"$ref": "#/definitions/sent_requests"
+				"$ref": "#/definitions/page"
 			}
 		}
 	},
-	"required": [ "sent_requests" ],
+	"required": [ "pages" ],
 	"additionalProperties": false
 }

@@ -2,11 +2,11 @@
 	"$schema": "http://json-schema.org/draft-04/schema",
 
 	"definitions": {
-		"groups": {
+		"entry": {
 			"type": "object",
 
-			"title": "Facebook Group Joined",
-			"event": "web:facebook:groups:joined",
+			"title": "Facebook Location History",
+			"event": "web:facebook:location:history",
 
 			"properties": {
 				"title": { "type": "string" },
@@ -25,20 +25,18 @@
 									"type": "object",
 
 									"properties": {
-										"name": { "type": "string" }
+										"place": {
+											"$ref": "http://localhost:8080/_partials/coordinate.json"
+										}
 									},
-									"required": [ "name" ],
+									"required": [ "place" ],
 									"additionalProperties": false
-								},
-								"minItems": 1,
-								"maxItems": 1
+								}
 							}
 						},
 						"required": [ "data" ],
 						"additionalProperties": false
-					},
-					"minItems": 1,
-					"maxItems": 1
+					}
 				}
 			},
 			"required": [ "title", "timestamp", "attachments" ],
@@ -49,14 +47,14 @@
 	"type": "object",
 
 	"properties": {
-		"groups_joined": {
+		"location_history": {
 			"type": "array",
-
+			
 			"items": {
-				"$ref": "#/definitions/groups"
+				"$ref": "#/definitions/entry"
 			}
 		}
 	},
-	"required": [ "groups_joined" ],
+	"required": [ "location_history" ],
 	"additionalProperties": false
 }

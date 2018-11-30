@@ -2,11 +2,11 @@
 	"$schema": "http://json-schema.org/draft-04/schema",
 
 	"definitions": {
-		"search": {
+		"page": {
 			"type": "object",
 
-			"title": "Facebook Search",
-			"event": "web:facebook:search",
+			"title": "Facebook Unfollowed Page",
+			"event": "web:facebook:following:unfollowed_page",
 
 			"properties": {
 				"title": { "type": "string" },
@@ -18,16 +18,16 @@
 						"type": "object",
 
 						"properties": {
-							"text": { "type": "string" }
+							"name": { "type": "string" }
 						},
-						"required": [ "text" ],
+						"required": [ "name" ],
 						"additionalProperties": false
 					},
 					"minItems": 1,
-					"maxItems": 1
+					"maxitems": 1
 				}
 			},
-			"required": [ "title", "timestamp" ],
+			"required": [ "title", "timestamp", "data" ],
 			"additionalProperties": false
 		}
 	},
@@ -35,14 +35,14 @@
 	"type": "object",
 
 	"properties": {
-		"searches": {
+		"pages_unfollowed": {
 			"type": "array",
 
 			"items": {
-				"$ref": "#/definitions/search"
+				"$ref": "#/definitions/page"
 			}
 		}
 	},
-	"required": [ "searches" ],
+	"required": [ "pages_unfollowed" ],
 	"additionalProperties": false
 }

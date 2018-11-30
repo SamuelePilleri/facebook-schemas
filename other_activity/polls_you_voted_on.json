@@ -2,11 +2,11 @@
 	"$schema": "http://json-schema.org/draft-04/schema",
 
 	"definitions": {
-		"groups": {
+		"vote": {
 			"type": "object",
 
-			"title": "Facebook Group Joined",
-			"event": "web:facebook:groups:joined",
+			"title": "Facebook Poke",
+			"event": "web:facebook:polls:vote",
 
 			"properties": {
 				"title": { "type": "string" },
@@ -25,9 +25,32 @@
 									"type": "object",
 
 									"properties": {
-										"name": { "type": "string" }
+										"poll":{
+											"type": "object",
+
+											"properties": {
+												"options": {
+													"type": "array",
+
+													"items": {
+														"type": "object",
+
+														"properties": {
+															"option": { "type": "string" },
+															"voted": { "type": "boolean" }
+														},
+														"required": [ "option", "voted" ],
+														"additionalProperties": false
+													},
+													"minItems": 1,
+													"maxItems": 1
+												}
+											},
+											"required": [ "options" ],
+											"additionalProperties": false
+										}
 									},
-									"required": [ "name" ],
+									"required": [ "poll" ],
 									"additionalProperties": false
 								},
 								"minItems": 1,
@@ -49,14 +72,14 @@
 	"type": "object",
 
 	"properties": {
-		"groups_joined": {
+		"poll_votes": {
 			"type": "array",
 
 			"items": {
-				"$ref": "#/definitions/groups"
+				"$ref": "#/definitions/vote"
 			}
-		}
+		}	
 	},
-	"required": [ "groups_joined" ],
+	"required": [ "poll_votes" ],
 	"additionalProperties": false
 }
