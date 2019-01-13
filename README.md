@@ -1,4 +1,12 @@
-This project is an effort to cover all files contained within a [Facebook profile dump](https://www.facebook.com/help/1701730696756992) with appropriate schemas. It started as a side project of [plaso](https://github.com/log2timeline/plaso)'s Facebook plugin.
+This project is an effort to cover all files contained within a [Facebook profile dump](https://www.facebook.com/help/1701730696756992) with appropriate schemas. It started as a side project of [Plaso](https://github.com/log2timeline/plaso)'s Facebook plugin.
+
+## Purpose
+
+In 2018 our Digital Forensics team observed an increase in the amount of cases involving social networks, especially Facebook due to its popularity and misuse.
+
+In order to simplify the task of analysis and correlation of evidences and help investigators solve this kind of cases, we developed a plugin for the well-known digital forensics tool [Plaso](https://github.com/log2timeline/plaso) which can automatically extract evidences from Facebook profile dumps.
+
+Since schemas can serve multiple purposes, we decided to release them as a separate and independent project. This repository contains the schemas used by our plugin along with tools that can help developers improve the coverage of such dumps.
 
 ## Rationale
 
