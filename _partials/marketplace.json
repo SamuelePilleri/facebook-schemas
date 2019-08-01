@@ -1,5 +1,6 @@
 {
-	"$schema": "http://json-schema.org/draft-04/schema",
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"id": "https://samuelepilleri.github.io/facebook-schemas/_partials/marketplace.json",
 
 	"definitions": {
 		"bought_item": {
@@ -32,7 +33,7 @@
 				"category": { "type": "string" },
 				"marketplace": { "type": "string" },
 				"location": {
-					"$ref": "http://localhost:8080/_partials/coordinate.json"
+					"$ref": "https://samuelepilleri.github.io/facebook-schemas/_partials/coordinate.json"
 				},
 				"description": { "type": "string" }
 			},

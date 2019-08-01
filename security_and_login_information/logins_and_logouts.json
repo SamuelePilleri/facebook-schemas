@@ -1,5 +1,6 @@
 {
-	"$schema": "http://json-schema.org/draft-04/schema",
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"id": "https://samuelepilleri.github.io/facebook-schemas/security_and_login_information/logins_and_logouts.json",
 
 	"definitions": {
 		"action": {

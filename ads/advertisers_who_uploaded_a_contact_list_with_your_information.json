@@ -1,5 +1,6 @@
 {
-	"$schema": "http://json-schema.org/draft-04/schema",
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"id": "https://samuelepilleri.github.io/facebook-schemas/ads/advertisers_who_uploaded_a_contact_list_with_your_information.json",
 
 	"type": "object",
 

@@ -1,5 +1,6 @@
 {
-	"$schema": "http://json-schema.org/draft-04/schema",
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"id": "https://samuelepilleri.github.io/facebook-schemas/other_activity/polls_you_voted_on.json",
 
 	"definitions": {
 		"vote": {

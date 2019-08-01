@@ -1,5 +1,6 @@
 {
-	"$schema": "http://json-schema.org/draft-04/schema",
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"id": "https://samuelepilleri.github.io/facebook-schemas/likes_and_reactions/likes_on_external_sites.json",
 
 	"definitions": {
 		"like": {
@@ -12,7 +13,7 @@
 				"title": { "type": "string" },
 				"timestamp": { "type": "integer" },
 				"attachments": {
-					"$ref": "http://localhost:8080/_partials/attachments.json"
+					"$ref": "https://samuelepilleri.github.io/facebook-schemas/_partials/attachments.json"
 				}
 			},
 			"required": [ "title", "timestamp", "attachments" ],

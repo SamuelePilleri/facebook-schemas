@@ -1,5 +1,6 @@
 {
-	"$schema": "http://json-schema.org/draft-04/schema",
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"id": "https://samuelepilleri.github.io/facebook-schemas/_partials/attachments.json",
 
 	"type": "array",
 
@@ -36,7 +37,7 @@
 
 							"properties": {
 								"media": {
-									"$ref": "http://localhost:8080/_partials/media.json"
+									"$ref": "https://samuelepilleri.github.io/facebook-schemas/_partials/media.json"
 								}
 							},
 							"required": [ "media" ],
@@ -47,7 +48,7 @@
 
 							"properties": {
 								"for_sale_item": {
-									"$ref": "http://localhost:8080/_partials/marketplace.json#/definitions/for_sale_item"
+									"$ref": "https://samuelepilleri.github.io/facebook-schemas/_partials/marketplace.json#/definitions/for_sale_item"
 								}
 							},
 							"required": [ "for_sale_item" ],
@@ -58,7 +59,7 @@
 
 							"properties": {
 								"place": {
-									"$ref": "http://localhost:8080/_partials/coordinate.json"
+									"$ref": "https://samuelepilleri.github.io/facebook-schemas/_partials/coordinate.json"
 								}
 							},
 							"required": [ "place" ],

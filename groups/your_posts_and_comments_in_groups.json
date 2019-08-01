@@ -1,5 +1,6 @@
 {
-	"$schema": "http://json-schema.org/draft-04/schema",
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"id": "https://samuelepilleri.github.io/facebook-schemas/groups/your_posts_and_comments_in_groups.json",
 
 	"type": "object",
 
@@ -9,8 +10,8 @@
 
 			"items": {
 				"oneOf": [
-					{ "$ref": "http://localhost:8080/posts/your_posts.json#/definitions/post" },
-					{ "$ref": "http://localhost:8080/comments/comments.json#/definitions/group_comment" }
+					{ "$ref": "https://samuelepilleri.github.io/facebook-schemas/posts/your_posts.json#/definitions/post" },
+					{ "$ref": "https://samuelepilleri.github.io/facebook-schemas/comments/comments.json#/definitions/group_comment" }
 				]
 			}
 		}

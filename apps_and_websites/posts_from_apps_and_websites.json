@@ -1,5 +1,6 @@
 {
-	"$schema": "http://json-schema.org/draft-04/schema",
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"id": "https://samuelepilleri.github.io/facebook-schemas/apps_and_websites/posts_from_apps_and_websites.json",
 
 	"type": "object",
 
@@ -15,16 +16,16 @@
 
 				"properties": {
 					"title": {
-						"$ref": "http://localhost:8080/posts/your_posts.json#/definitions/post/properties/title"
+						"$ref": "https://samuelepilleri.github.io/facebook-schemas/posts/your_posts.json#/definitions/post/properties/title"
 					},
 					"timestamp": {
-						"$ref": "http://localhost:8080/posts/your_posts.json#/definitions/post/properties/timestamp"
+						"$ref": "https://samuelepilleri.github.io/facebook-schemas/posts/your_posts.json#/definitions/post/properties/timestamp"
 					},
 					"data": {
-						"$ref": "http://localhost:8080/posts/your_posts.json#/definitions/post/properties/data"
+						"$ref": "https://samuelepilleri.github.io/facebook-schemas/posts/your_posts.json#/definitions/post/properties/data"
 					},
 					"attachments": {
-						"$ref": "http://localhost:8080/posts/your_posts.json#/definitions/post/properties/attachments"
+						"$ref": "https://samuelepilleri.github.io/facebook-schemas/posts/your_posts.json#/definitions/post/properties/attachments"
 					}
 				},
 				"required": [ "timestamp" ],
